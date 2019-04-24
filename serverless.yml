@@ -1,0 +1,62 @@
+# Welcome to Serverless!
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+#
+# haha yes
+
+service: photo-album-api-serverless # NOTE: update this with your service name
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: us-east-2
+  iamRoleStatements:
+  - Effect: "Allow"
+    Action:
+    - "s3:*"
+    Resource: "*"
+  - Effect: "Allow"
+    Action:
+    - "logs:CreateLogGroup"
+    - "logs:CreateLogStream"
+    - "logs:PutLogEvents"
+    Resource: "*"
+  - Effect: "Allow"
+    Action:
+    - "xray:*"
+    Resource: "*"
+  versionFunctions: false
+  tracing:
+    lambda: true
+  provider:
+    deploymentBucket: photo-album-api
+
+plugins:
+- serverless-plugin-typescript
+- serverless-offline
+
+
+functions:
+  hello:
+    handler: src/handlers/HelloHandler.hello
+    events:
+    - http:
+        path: /hello
+        method: get
+        cors: true
+
+  param:
+    handler: src/handlers/HelloHandler.parameterExample
+    events:
+    - http:
+        path: /test/{id}
+        method: get
+        cors: true
+        request:
+          parameters:
+            paths:
+              id: true

@@ -1,0 +1,30 @@
+{
+  "name": "serverless-nodejs-typescript-starter",
+  "version": "0.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.0.0-rc.2",
+    "aws-lambda": "^0.1.2",
+    "dotenv": "^7.0.0",
+    "serverless": "^1.40.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.24",
+    "@types/dotenv": "^6.1.1",
+    "@types/node": "^11.13.5",
+    "serverless-offline": "^4.9.4",
+    "serverless-plugin-typescript": "^1.1.7",
+    "tslint": "^5.16.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.4.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
